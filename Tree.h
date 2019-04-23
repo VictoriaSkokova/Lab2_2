@@ -25,7 +25,7 @@ queue<item>::~queue()
 }
 
 template <typename T, typename T2 >
-class RBTree
+class Map
 {
 private:
 
@@ -54,8 +54,8 @@ private:
 	Node * root;
 	size_t size;
 public:
-	RBTree();
-	~RBTree();
+	Map();
+	~Map();
 
 	class TreeIterator : public Iterator<T, T2> {
 	protected:                                         //доступ есть у классов, производных от данного
@@ -88,8 +88,8 @@ public:
 	void add_first(Node*);        //adding the first element to the tree
 	void delfix(Node*);           //supporting function for remove, balance
 public:
-	void get_keys();
-	void get_value();
+	T get_keys();
+	T2 get_value();
 	void clear();                 //clearing the tree
 	void insert(T, T2);
 	void remove(T);               //removing element by key
@@ -102,7 +102,7 @@ public:
 
 
 template<typename T, typename T2>
-void RBTree<T, T2>::BftIterator::operator++(T)
+void Map<T, T2>::BftIterator::operator++(T)
 {
 	if (this->current->left != nullptr)
 		nodes.push(this->current->left);
